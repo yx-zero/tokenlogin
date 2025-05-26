@@ -22,7 +22,8 @@ public class APIUtils {
             request.setHeader("Authorization", "Bearer " + token);
             try (CloseableHttpResponse response = client.execute(request)) {
                 String jsonString = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
-                JsonObject json = JsonParser.parseString(jsonString).getAsJsonObject();
+                JsonParser parser = new JsonParser();
+                JsonObject json = parser.parse(jsonString).getAsJsonObject();
                 String username = json.get("name").getAsString();
                 String uuid = json.get("id").getAsString();
                 return new String[]{username, uuid};
@@ -35,7 +36,7 @@ public class APIUtils {
             String[] profile = getProfileInfo(token);
             Session session = Minecraft.getMinecraft().getSession();
             return profile[0].equals(session.getUsername()) &&
-                    profile[1].equals(session.getPlayerID());
+                   profile[1].equals(session.getPlayerID());
         } catch (Exception e) {
             return false;
         }
@@ -46,7 +47,8 @@ public class APIUtils {
             HttpGet request = new HttpGet("https://api.slothpixel.me/api/players/" + uuid);
             try (CloseableHttpResponse response = client.execute(request)) {
                 String jsonString = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
-                JsonObject json = JsonParser.parseString(jsonString).getAsJsonObject();
+                JsonParser parser = new JsonParser();
+                JsonObject json = parser.parse(jsonString).getAsJsonObject();
                 return json.get("online").getAsBoolean();
             }
         } catch (Exception e) {
