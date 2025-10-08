@@ -24,7 +24,7 @@ import java.text.ParseException;
 public class TokenLogin {
 
     public static final String MODID = "TokenLogin";
-    public static final String VERSION = "2.0";
+    public static final String VERSION = "2.1";
 
     // Minecraft instance
     private static final Minecraft mc = Minecraft.getMinecraft();
@@ -39,7 +39,7 @@ public class TokenLogin {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(this);
-        Display.setTitle("TokenLogin 2.0");
+        Display.setTitle("TokenLogin 2.1");
     }
 
     @SubscribeEvent
