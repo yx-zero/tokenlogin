@@ -33,8 +33,8 @@ public class TokenLogin {
     public static final Session originalSession = mc.getSession();
 
     // Login status indicators
-    public static String onlineStatus = "§4╳ Offline";
-    public static String isSessionValid = "§2✔ Valid";
+    public static String onlineStatus = "§4Offline";
+    public static String isSessionValid = "§2Valid";
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -55,8 +55,8 @@ public class TokenLogin {
                     boolean valid = APIUtils.validateSession(mc.getSession().getToken());
                     boolean online = APIUtils.checkOnline(mc.getSession().getUsername());
 
-                    isSessionValid = valid ? "§2✔ Valid" : "§4╳ Invalid";
-                    onlineStatus = online ? "§2✔ Online" : "§4╳ Offline";
+                    isSessionValid = valid ? "§2Valid" : "§4Invalid";
+                    onlineStatus = online ? "§2Online" : "§4Offline";
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
