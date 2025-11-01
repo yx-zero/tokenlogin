@@ -33,7 +33,6 @@ public class TokenLogin {
     public static final Session originalSession = mc.getSession();
 
     // Login status indicators
-    public static String onlineStatus = "§4Offline";
     public static String isSessionValid = "§2Valid";
 
     @EventHandler
@@ -53,10 +52,7 @@ public class TokenLogin {
             new Thread(() -> {
                 try {
                     boolean valid = APIUtils.validateSession(mc.getSession().getToken());
-                    boolean online = APIUtils.checkOnline(mc.getSession().getUsername());
-
                     isSessionValid = valid ? "§2Valid" : "§4Invalid";
-                    onlineStatus = online ? "§2Online" : "§4Offline";
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -68,8 +64,8 @@ public class TokenLogin {
     @SubscribeEvent
     public void onDrawScreenPost(GuiScreenEvent.DrawScreenEvent.Post event) {
         if (event.gui instanceof GuiMultiplayer) {
-            String text = String.format("§fUser: %s  §f|  %s  §f|  %s",
-                    mc.getSession().getUsername(), onlineStatus, isSessionValid);
+            String text = String.format("§fUser: %s  §f|  %s",
+                    mc.getSession().getUsername(), isSessionValid);
 
             mc.fontRendererObj.drawString(text, 5, 10, Color.RED.getRGB());
         }

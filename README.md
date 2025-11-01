@@ -21,7 +21,7 @@ Looking for premium Minecraft alts? Join our growing community.
 
 - 🔑 Log in with Microsoft access tokens (direct session switch)
 - ♻️ Restore your original session at any time
-- ✅ Check current session validity and online status
+- ✅ Check current session validity
 - ✏️ Change in-game username (Mojang legacy support)
 - 🎨 Change skin by image URL
 
@@ -41,7 +41,7 @@ Looking for premium Minecraft alts? Join our growing community.
 
 - `Login`: Enter your Microsoft token to instantly switch sessions
 - `Changer`: Change your username or apply a custom skin via URL
-- Session status (online/valid) is displayed live at the top of the multiplayer menu
+- Session status (valid/invalid) is displayed live at the top of the multiplayer menu
 
 ---
 
